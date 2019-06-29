@@ -4,3 +4,7 @@ This app lets you choose three cards from the Marsielle deck. Once cards are sel
 
 This project is still in development.
 
+Here is a link to a demo.
+
+
+http://average-advice.surge.sh/
