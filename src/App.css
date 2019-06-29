@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English&display=swap');
+body {
+  background-color: #282c34;
+}
+section {
+  padding: 1em;
+  /* margin: auto;
+  width: 30vh; */
+}
+.small {
+  font-size: 1em;
+}
+.App {
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  /* font-size: 18px; */
+  max-width: 50em;
+  margin: auto;
+  font-size: calc(13px + 1vmin);
+
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.rounded {
+  border-radius: .5em;
+}
+.is-flipped {
+  transform: translateX(0) rotateY(360deg);
+  transition: all .3s ease-out;
+}
+.is-facedown {
+  transform: translateX(0) rotateY(-180deg);
+  transition: all .5s ease-out;
+}
+span {
+  font-size: 2.5em;
+  cursor: pointer;
+}
+.pointer {
+  cursor: pointer;
+}
+p {
+  /* padding: 1em; */
+}
+.no-border {
+  border: none;
+  outline: none;
+  background: none;
+}
+.fade-in {
+  animation: fade .5s ease-in;
+}
+.fade-out {
+  opacity: 0;
+  /* animation: fadeout .5s ease-in; */
+}
+@supports(grid-area: auto){
+	@media screen and (min-width: 600px) {	
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: .5em;
+    }
+  }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.roll:hover {
+  animation: spin .5s ease-in; 
+}
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    transform: rotate(0 deg);
+  }
+  to {
+    transform: rotate(360 deg);
+  }
+}
+@keyframes spin {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
