@@ -24,6 +24,7 @@ function App(props) {
           onClick={() => props.dispatch({ type: C.GETTHREECARDS })}
           type="button"
           className="no-border"
+          data-cy="shuffle-button"
         >
           <img
             src="./images/tarot-button.gif"

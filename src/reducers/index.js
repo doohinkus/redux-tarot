@@ -5,12 +5,21 @@ import cards from '../data/index.json';
 function randomArr(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
-const rootReducer = (state = cards, action) => {
+// set random cards for initial state
+// this allows the cards to appear on screen without using component life cycle method
+const shuffledCards = randomArr(cards.cards);
+const defaultState = {
+  cards: [...cards.cards],
+  selected: [],
+  selectedCards: shuffledCards,
+};
+// root reducer
+const rootReducer = (state = defaultState, action) => {
   const randomCard = Math.floor(Math.random() * state.cards.length);
   const shuffled = randomArr(state.cards);
   switch (action.type) {
     case C.GETTHREECARDS:
-      // shuffle array grab first three items
+      // shuffle array grab three items
       return {
         ...state,
         selectedCards: [...shuffled.filter((card, index) => index === 2
