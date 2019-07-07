@@ -11,7 +11,9 @@ const shuffledCards = randomArr(cards.cards);
 const defaultState = {
   cards: [...cards.cards],
   selected: [],
-  selectedCards: shuffledCards,
+  selectedCards: [...shuffledCards.filter((card, index) => index === 2
+    || index === 3 || index === 5),
+  ],
 };
 // root reducer
 const rootReducer = (state = defaultState, action) => {

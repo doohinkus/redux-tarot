@@ -12,6 +12,10 @@ const mapStateToProps = state => ({
   state,
 });
 
+const mapDispatchToProps = {
+  flipCard,
+  getThreeCards,
+};
 function App(props) {
   const { state } = props;
   const { selected } = state;
@@ -21,7 +25,7 @@ function App(props) {
         <h1>Marseille Tarot</h1>
         <p>{selected && selected.map(card => card.title)}</p>
         <button
-          onClick={() => props.dispatch(getThreeCards())}
+          onClick={() => props.getThreeCards()}
           type="button"
           className="no-border"
           data-cy="shuffle-button"
@@ -43,7 +47,7 @@ function App(props) {
                 tagline={card.tagline}
                 meaning={card.article}
                 // this can be called in the component via redux!!!
-                flipCard={() => props.dispatch(flipCard(card.card))}
+                flipCard={() => props.flipCard(card.card)}
                 // just pass the piece of state that the component needs
               />
             </React.Fragment>
@@ -55,6 +59,7 @@ function App(props) {
 }
 App.propTypes = {
   state: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  flipCard: PropTypes.func.isRequired,
+  getThreeCards: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
