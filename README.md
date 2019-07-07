@@ -7,4 +7,4 @@ This project is still in development.
 Here is a link to a MVP demo.
 
 
-http://fantastic-banana.surge.sh/
+http://fantastic-banana.surge.sh
