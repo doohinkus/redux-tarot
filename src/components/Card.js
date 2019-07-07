@@ -19,7 +19,7 @@ function Card({
         <p className={isFlipped ? 'fade-in' : 'fade-out'}>{title}</p>
         <button
           type="button"
-          className="no-border rounded fade-in pointer"
+          className="no-border rounded fade-in pointer slide-in-elliptic-top-fwd"
           onClick={flipCard}
         >
           <img
