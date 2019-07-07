@@ -11,7 +11,7 @@ import Card from './components/Card';
 const mapStateToProps = state => ({
   state,
 });
-
+// add bind Action Creators???
 const mapDispatchToProps = {
   flipCard,
   getThreeCards,
