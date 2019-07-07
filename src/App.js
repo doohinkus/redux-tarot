@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { C } from './actions';
+import { flipCard, getThreeCards } from './actions';
 import './App.css';
 import Card from './components/Card';
 
@@ -21,7 +21,7 @@ function App(props) {
         <h1>Marseille Tarot</h1>
         <p>{selected && selected.map(card => card.title)}</p>
         <button
-          onClick={() => props.dispatch({ type: C.GETTHREECARDS })}
+          onClick={() => props.dispatch(getThreeCards())}
           type="button"
           className="no-border"
           data-cy="shuffle-button"
@@ -43,7 +43,7 @@ function App(props) {
                 tagline={card.tagline}
                 meaning={card.article}
                 // this can be called in the component via redux!!!
-                flipCard={() => props.dispatch({ type: C.FLIPCARD, payload: card.card })}
+                flipCard={() => props.dispatch(flipCard(card.card))}
                 // just pass the piece of state that the component needs
               />
             </React.Fragment>

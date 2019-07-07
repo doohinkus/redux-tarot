@@ -6,28 +6,34 @@ const C = {
   GETTHREECARDS: 'GETTHREECARDS',
 };
 // action creators
-const shuffleDeck = () => (dispatch) => {
-  dispatch({
+function shuffleDeck() {
+  return {
     type: C.SHUFFLEDECK,
-  });
-};
-const selectCard = cardId => dispatch => (
-  dispatch({
+  };
+}
+function getThreeCards() {
+  return {
+    type: C.GETTHREECARDS,
+  };
+}
+function selectCard(cardId) {
+  return {
     type: C.SELECTCARD,
     payload: cardId,
-  })
-);
-const flipCard = cardId => dispatch => (
-  dispatch({
+  };
+}
+
+function flipCard(cardId) {
+  return {
     type: C.FLIPCARD,
     payload: cardId,
-  })
-);
-
+  };
+}
 
 export {
   shuffleDeck,
   selectCard,
   flipCard,
+  getThreeCards,
   C,
 };
