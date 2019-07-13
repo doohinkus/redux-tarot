@@ -1,12 +1,14 @@
-import { createStore } from 'redux';
-// import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import rootReducer from '../reducers';
 
 /* eslint-disable no-underscore-dangle */
+const middleware = applyMiddleware(thunk, logger);
 const store = createStore(
   rootReducer,
+  middleware,
   /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 /* eslint-enable */
 export default store;
