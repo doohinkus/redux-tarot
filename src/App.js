@@ -17,14 +17,14 @@ const mapDispatchToProps = {
   getThreeCards,
 };
 function App(props) {
-  // destructor props
+  // destructure props
   const { selectedCards } = props;
   return (
     <div className="App">
       <section className="App-header">
         <h1>Marseille Tarot</h1>
         <button
-        // no need to destructor actions
+        // no need to destructure actions
           onClick={() => props.getThreeCards()}
           type="button"
           className="no-border"
