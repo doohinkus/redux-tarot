@@ -14,7 +14,7 @@ function Card({
 }) {
   const back = './images/card-back.jpg';
   return (
-    <section>
+    <section data-cy="card">
       <React.Fragment>
         <p className={isFlipped ? 'fade-in' : 'fade-out'}>{title}</p>
         <button

@@ -9,7 +9,8 @@ import './App.css';
 import Card from './components/Card';
 
 const mapStateToProps = state => ({
-  state,
+  cards: state.cards,
+  selectedCards: state.selectedCards,
 });
 // add bind Action Creators???
 const mapDispatchToProps = {
@@ -17,13 +18,11 @@ const mapDispatchToProps = {
   getThreeCards,
 };
 function App(props) {
-  const { state } = props;
-  const { selected } = state;
   return (
     <div className="App">
       <section className="App-header">
         <h1>Marseille Tarot</h1>
-        <p>{selected && selected.map(card => card.title)}</p>
+        <p>{props.selected && props.selected.map(card => card.title)}</p>
         <button
           onClick={() => props.getThreeCards()}
           type="button"
@@ -38,7 +37,7 @@ function App(props) {
         </button>
         <span className="small">shuffle</span>
         <div className="grid">
-          {state.selectedCards && state.selectedCards.map(card => (
+          {props.selectedCards && props.selectedCards.map(card => (
             <React.Fragment key={card.card}>
               <Card
                 title={card.title}
@@ -58,7 +57,6 @@ function App(props) {
   );
 }
 App.propTypes = {
-  state: PropTypes.object.isRequired,
   flipCard: PropTypes.func.isRequired,
   getThreeCards: PropTypes.func.isRequired,
 };
