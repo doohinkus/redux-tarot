@@ -7,23 +7,24 @@ import { connect } from 'react-redux';
 import { flipCard, getThreeCards } from './actions';
 import './App.css';
 import Card from './components/Card';
-
+// pull the state you want to use
 const mapStateToProps = state => ({
-  cards: state.cards,
   selectedCards: state.selectedCards,
 });
-// add bind Action Creators???
+// pull the actions you want to use
 const mapDispatchToProps = {
   flipCard,
   getThreeCards,
 };
 function App(props) {
+  // destructor props
+  const { selectedCards } = props;
   return (
     <div className="App">
       <section className="App-header">
         <h1>Marseille Tarot</h1>
-        <p>{props.selected && props.selected.map(card => card.title)}</p>
         <button
+        // no need to destructor actions
           onClick={() => props.getThreeCards()}
           type="button"
           className="no-border"
@@ -37,7 +38,7 @@ function App(props) {
         </button>
         <span className="small">shuffle</span>
         <div className="grid">
-          {props.selectedCards && props.selectedCards.map(card => (
+          {selectedCards && selectedCards.map(card => (
             <React.Fragment key={card.card}>
               <Card
                 title={card.title}
@@ -45,9 +46,7 @@ function App(props) {
                 isFlipped={card.flipped}
                 tagline={card.tagline}
                 meaning={card.article}
-                // this can be called in the component via redux!!!
                 flipCard={() => props.flipCard(card.card)}
-                // just pass the piece of state that the component needs
               />
             </React.Fragment>
           ))}
@@ -57,9 +56,9 @@ function App(props) {
   );
 }
 App.propTypes = {
-  cards: PropTypes.array.isRequired,
   selectedCards: PropTypes.array.isRequired,
   flipCard: PropTypes.func.isRequired,
   getThreeCards: PropTypes.func.isRequired,
 };
+// glue redux to this component
 export default connect(mapStateToProps, mapDispatchToProps)(App);
