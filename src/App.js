@@ -57,6 +57,8 @@ function App(props) {
   );
 }
 App.propTypes = {
+  cards: PropTypes.array.isRequired,
+  selectedCards: PropTypes.array.isRequired,
   flipCard: PropTypes.func.isRequired,
   getThreeCards: PropTypes.func.isRequired,
 };
