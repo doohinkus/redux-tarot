@@ -22,6 +22,11 @@ const rootReducer = (state = defaultState, action) => {
   switch (action.type) {
     case C.GETTHREECARDS:
       // shuffle array grab three items
+      // the modifications could be done in the actions, then the payload would be the new state.
+      // eg, return { ...state, action.payload }
+      // payload has the state change / modified information see below
+      // action.payload = selectedCards: [ shuffled cards here ]
+      // that is the pattern for asynch actions
       return {
         ...state,
         selectedCards: [...shuffled.filter((card, index) => index === 2
@@ -52,6 +57,17 @@ const rootReducer = (state = defaultState, action) => {
           }
           return card;
         })],
+      };
+    case 'START_DAD_JOKE':
+      return {
+        ...state,
+        fetch_joke: true,
+      };
+    case 'DAD_JOKE':
+      return {
+        ...state,
+        joke: action.payload,
+        fetch_joke: false,
       };
     default:
       return state;

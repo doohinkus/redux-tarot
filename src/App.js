@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { flipCard, getThreeCards } from './actions';
+import { flipCard, getThreeCards, dadJoke } from './actions';
 import './App.css';
 import Card from './components/Card';
 // pull the state you want to use
@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   flipCard,
   getThreeCards,
+  dadJoke,
 };
 function App(props) {
   // destructure props
@@ -23,6 +24,7 @@ function App(props) {
     <div className="App">
       <section className="App-header">
         <h1>Marseille Tarot</h1>
+        <button type="button" onClick={() => props.dadJoke()}>joke</button>
         <button
         // no need to destructure actions
           onClick={() => props.getThreeCards()}
@@ -58,6 +60,7 @@ function App(props) {
 App.propTypes = {
   selectedCards: PropTypes.array.isRequired,
   flipCard: PropTypes.func.isRequired,
+  dadJoke: PropTypes.func.isRequired,
   getThreeCards: PropTypes.func.isRequired,
 };
 // glue redux to this component
