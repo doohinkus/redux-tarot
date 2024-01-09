@@ -7,4 +7,4 @@ This project is still in development.
 Here is a link to a MVP demo.
 
 
-http://psychotic-sheet.surge.sh/
+https://tarot.bluespicemachine.com
